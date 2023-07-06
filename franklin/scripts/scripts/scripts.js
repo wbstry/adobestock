@@ -16,7 +16,7 @@ import { setLibs, createTag } from './utils.js';
 const STYLES = '/franklin/styles/styles.css';
 
 // Use '/libs' if your live site maps '/libs' to milo's origin.
-const LIBS = 'https://milo.adobe.com/libs';
+const LIBS = 'https://shortcard--milo--wbstry.hlx.live/libs';
 
 // Add any config options.
 const CONFIG = {
