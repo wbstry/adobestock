@@ -23,7 +23,7 @@
 export const [setLibs, getLibs] = (() => {
   let libs;
   return [
-    (prodLibs, fork = 'adobecom') => {
+    (prodLibs) => {
       const { hostname } = window.location;
       if (!hostname.includes('hlx.page')
         && !hostname.includes('hlx.live')
@@ -31,11 +31,12 @@ export const [setLibs, getLibs] = (() => {
         libs = prodLibs;
         return libs;
       }
-      const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
+      const searchParams = new URLSearchParams(window.location.search);
+      const branch = searchParams.get('milolibs') || 'main';
+      const fork = searchParams.get('milofork') || 'adobecom';
       if (branch === 'local') return 'http://localhost:6456/libs';
       if (branch.indexOf('--') > -1) return `https://${branch}.hlx.page/libs`;
-      if (fork === 'adobecom') fork = 'wbstry';
-      
+
       return `https://${branch}--milo--${fork}.hlx.live/libs`;
     }, () => libs,
   ];
