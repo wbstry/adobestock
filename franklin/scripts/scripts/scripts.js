@@ -44,7 +44,7 @@ const CONFIG = {
  * ------------------------------------------------------------
  */
 
-const miloLibs = setLibs(LIBS, 'wbstry');
+const miloLibs = setLibs(LIBS);
 
 (function loadStyles() {
   const paths = [`${miloLibs}/styles/styles.css`];

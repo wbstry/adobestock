@@ -19,6 +19,7 @@
 /**
  * The decision engine for where to get Milo's libs from.
  */
+
 export const [setLibs, getLibs] = (() => {
   let libs;
   return [
@@ -33,6 +34,8 @@ export const [setLibs, getLibs] = (() => {
       const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
       if (branch === 'local') return 'http://localhost:6456/libs';
       if (branch.indexOf('--') > -1) return `https://${branch}.hlx.page/libs`;
+      if (fork === 'adobecom') fork = 'wbstry';
+      
       return `https://${branch}--milo--${fork}.hlx.live/libs`;
     }, () => libs,
   ];
