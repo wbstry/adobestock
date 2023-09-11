@@ -117,12 +117,15 @@ function loadFooter() {
   document.getElementsByClassName('footer-info')[0].insertBefore($footerLeftLinkGroupColumn, $footerInfoLastChildElement);
 }
 
+/**
+ * Adjusting max-width styling for Artist Hub.
+ */
 function decorateArticle() {
-  const articleTag = document.querySelector('meta[name="isarticle"]');
-
-  if (articleTag && ['yes', 'y', 'true'].includes(articleTag.content.toLowerCase())) {
+  if (window.location.href.includes('/artisthub/')) {
     const contents = document.querySelectorAll('main .content');
-    contents.forEach((content) => { content.classList.add('article'); });
+    contents.forEach((content) => {
+      content.classList.add('article');
+    });
   }
 }
 
