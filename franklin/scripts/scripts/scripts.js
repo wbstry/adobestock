@@ -117,13 +117,26 @@ function loadFooter() {
   document.getElementsByClassName('footer-info')[0].insertBefore($footerLeftLinkGroupColumn, $footerInfoLastChildElement);
 }
 
+function decorateArticle() {
+  const articleTag = document.querySelector('meta[name="isarticle"]');
+
+  if (articleTag && ['yes', 'y', 'true'].includes(articleTag.content.toLowerCase())) {
+    const contents = document.querySelectorAll('main .content');
+    contents.forEach((content) => { content.classList.add('article'); });
+  }
+}
+
 (async function loadPage() {
   const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/utils.js`);
 
   setConfig({ ...CONFIG, miloLibs });
+
   await loadArea();
+  await decorateArticle();
   await loadDelayed();
+
   const footer = document.querySelector('footer');
+
   if (footer) {
     loadFooter();
   }

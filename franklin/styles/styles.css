@@ -1,9 +1,9 @@
-/* 
+/*
  * Put project specific base styles here.
  *
- * Note: The proect does not load this file.
+ * Note: The project does not load this file.
  *       You will need to load these using scripts.js.
- * 
+ *
  *
  */
  .footer-wrapper {
@@ -31,7 +31,7 @@
  .footer-info-column:last-child {
   flex-grow: 1;
  }
- 
+
  .footer-privacy-link.footer-left-link:not(:last-child)::after {
   content: '';
  }
@@ -54,4 +54,9 @@
 
 .footer-region {
   margin-right: revert !important;
+}
+
+main > .section > .content.article {
+  max-width: 700px;
+  padding: var(--spacing-m) 0;
 }
