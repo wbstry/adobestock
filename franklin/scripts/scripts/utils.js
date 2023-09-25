@@ -38,13 +38,9 @@ export const [setLibs, getLibs] = (() => {
   ];
 })();
 
-/* eslint-disable no-restricted-syntax */
-export function createTag(name, attrs) {
-  const el = document.createElement(name);
-  if (typeof attrs === 'object') {
-    for (const [key, value] of Object.entries(attrs)) {
-      el.setAttribute(key, value);
-    }
-  }
-  return el;
-}
+const LIBS = 'https://milo.adobe.com/libs';
+const miloLibs = setLibs(LIBS);
+export const { createTag, getConfig } = await import(`${miloLibs}/utils/utils.js`);
+export const { replaceKey } = await import(`${miloLibs}/features/placeholders.js`);
+export const { decorateBlockAnalytics, decorateLinkAnalytics } = await import(`${miloLibs}/martech/attributes.js`);
+export const NAVBAR_HEIGHT = 97
