@@ -45,6 +45,9 @@ const CONFIG = {
  */
 
 const miloLibs = setLibs(LIBS);
+export const { getConfig, createTag, loadStyle } = await import(`${miloLibs}/utils/utils.js`);
+export const { replaceKey } = await import(`${miloLibs}/features/placeholders.js`);
+export const { decorateBlockAnalytics } = await import(`${miloLibs}/martech/attributes.js`);
 
 (function loadStyles() {
   const paths = [`${miloLibs}/styles/styles.css`];
