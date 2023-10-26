@@ -57,7 +57,14 @@ const miloLibs = setLibs(LIBS);
   });
 }());
 
-export const { loadArea, loadDelayed, setConfig, createTag, getConfig, loadStyle } = await import(`${miloLibs}/utils/utils.js`);
+export const {
+  loadArea,
+  loadDelayed,
+  setConfig,
+  createTag,
+  getConfig,
+  loadStyle,
+} = await import(`${miloLibs}/utils/utils.js`);
 export const { replaceKey } = await import(`${miloLibs}/features/placeholders.js`);
 export const { decorateBlockAnalytics } = await import(`${miloLibs}/martech/attributes.js`);
 
